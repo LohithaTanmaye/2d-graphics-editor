@@ -93,6 +93,7 @@ int main() {
         printf("5. Display Picture\n");
         printf("6. Delete Area\n");
         printf("7. Clear Picture\n");
+        printf("8.Modify object\n");
         printf("0. Exit\n");
 
         scanf("%d", &choice);
@@ -147,6 +148,52 @@ int main() {
                 else if (choice == 7) {
     clearPicture();
     printf("Picture cleared.\n");
+}
+                    else if (choice == 8) {
+    int shapeChoice;
+    int x1, y1, x2, y2, x3, y3;
+    int cx, cy, radius;
+
+    printf("First delete the old object area.\n");
+    printf("Enter top-left x y and bottom-right x y: ");
+    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+
+    deleteArea(x1, y1, x2, y2);
+
+    printf("\nChoose new object to draw:\n");
+    printf("1. Line\n");
+    printf("2. Rectangle\n");
+    printf("3. Circle\n");
+    printf("4. Triangle\n");
+    printf("Enter choice: ");
+    scanf("%d", &shapeChoice);
+
+    if (shapeChoice == 1) {
+        printf("Enter x1 y1 x2 y2: ");
+        scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+        drawLine(x1, y1, x2, y2);
+    }
+    else if (shapeChoice == 2) {
+        printf("Enter top-left x y and bottom-right x y: ");
+        scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+        drawRectangle(x1, y1, x2, y2);
+    }
+    else if (shapeChoice == 3) {
+        printf("Enter center x y and radius: ");
+        scanf("%d %d %d", &cx, &cy, &radius);
+        drawCircle(cx, cy, radius);
+    }
+    else if (shapeChoice == 4) {
+        printf("Enter x1 y1 x2 y2 x3 y3: ");
+        scanf("%d %d %d %d %d %d",
+              &x1, &y1, &x2, &y2, &x3, &y3);
+        drawTriangle(x1, y1, x2, y2, x3, y3);
+    }
+    else {
+        printf("Invalid shape choice.\n");
+    }
+
+    printf("Object modified.\n");
 }
         else if (choice == 0) {
             printf("Exiting program.\n");
