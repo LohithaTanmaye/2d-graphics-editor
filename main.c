@@ -62,6 +62,16 @@ void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
         Draw a triangle by joining the three given points.
     */
 }
+void deleteArea(int x1, int y1, int x2, int y2) {
+    for (int y = y1; y <= y2; y++) {
+        for (int x = x1; x <= x2; x++) {
+            if (x >= 0 && x < WIDTH &&
+                y >= 0 && y < HEIGHT) {
+                picture[y][x] = EMPTY;
+            }
+        }
+    }
+}
 
 int main() {
     int choice;
@@ -81,8 +91,9 @@ int main() {
         printf("3. Draw Circle\n");
         printf("4. Draw Triangle\n");
         printf("5. Display Picture\n");
+        printf("6. Delete Area\n");
+        printf("7. Clear Picture\n");
         printf("0. Exit\n");
-        printf("Enter choice: ");
 
         scanf("%d", &choice);
 
@@ -123,6 +134,20 @@ int main() {
             printf("The picture is:\n");
             displayPicture();
         }
+            else if (choice == 6) {
+    int x1, y1, x2, y2;
+
+    printf("Enter top-left x y and bottom-right x y: ");
+    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+
+    deleteArea(x1, y1, x2, y2);
+
+    printf("Area deleted.\n");
+}
+                else if (choice == 7) {
+    clearPicture();
+    printf("Picture cleared.\n");
+}
         else if (choice == 0) {
             printf("Exiting program.\n");
             break;
