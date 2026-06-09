@@ -1,0 +1,2 @@
+# Screenshots
+Project execution screenshots.
