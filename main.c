@@ -8,60 +8,85 @@
 #define PIXEL '*'
 
 char picture[HEIGHT][WIDTH];
-
 void clearPicture() {
-    /*
-        TODO:
-        Fill the entire 2D array picture with EMPTY character '_'.
-    */
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            picture[i][j] = EMPTY;
+        }
+    }
 }
 
 void displayPicture() {
-    /*
-        TODO:
-        Print the 2D picture array row by row.
-    */
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            printf("%c", picture[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 void setPixel(int x, int y) {
-    /*
-        TODO:
-        If x and y are inside the canvas,
-        set picture[y][x] to PIXEL character '*'.
-    */
+    if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
+        picture[y][x] = PIXEL;
+    }
 }
 
 void drawLine(int x1, int y1, int x2, int y2) {
-    /*
-        TODO:
-        Draw a line from (x1, y1) to (x2, y2)
-        using the '*' character.
-    */
+    int dx = abs(x2 - x1);
+    int dy = abs(y2 - y1);
+
+    int sx = (x1 < x2) ? 1 : -1;
+    int sy = (y1 < y2) ? 1 : -1;
+
+    int err = dx - dy;
+
+    while (1) {
+        setPixel(x1, y1);
+
+        if (x1 == x2 && y1 == y2)
+            break;
+
+        int e2 = 2 * err;
+
+        if (e2 > -dy) {
+            err -= dy;
+            x1 += sx;
+        }
+
+        if (e2 < dx) {
+            err += dx;
+            y1 += sy;
+        }
+    }
 }
 
 void drawRectangle(int x1, int y1, int x2, int y2) {
-    /*
-        TODO:
-        Draw a rectangle using four lines.
-        Top-left corner is (x1, y1).
-        Bottom-right corner is (x2, y2).
-    */
+    drawLine(x1, y1, x2, y1);
+    drawLine(x2, y1, x2, y2);
+    drawLine(x2, y2, x1, y2);
+    drawLine(x1, y2, x1, y1);
 }
 
 void drawCircle(int cx, int cy, int radius) {
-    /*
-        TODO:
-        Draw a circle with center (cx, cy)
-        and given radius using '*'.
-    */
+    for (int y = -radius; y <= radius; y++) {
+        for (int x = -radius; x <= radius; x++) {
+            int distance = x * x + y * y;
+
+            if (distance >= radius * radius - radius &&
+                distance <= radius * radius + radius) {
+                setPixel(cx + x, cy + y);
+            }
+        }
+    }
 }
 
 void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
-    /*
-        TODO:
-        Draw a triangle by joining the three given points.
-    */
+    drawLine(x1, y1, x2, y2);
+    drawLine(x2, y2, x3, y3);
+    drawLine(x3, y3, x1, y1);
 }
+
+
 void deleteArea(int x1, int y1, int x2, int y2) {
     for (int y = y1; y <= y2; y++) {
         for (int x = x1; x <= x2; x++) {
