@@ -1,1 +1,77 @@
+Prompt 1:
+Requirements were given for creating a 2D Graphics Editor using * and _ in C.
 
+Response:
+Explained the project requirements and suggested using a 2D character array as the canvas.
+
+------------------------------------------------
+
+Prompt 2:
+How should I create the GitHub repository?
+
+Response:
+Explained how to create a GitHub repository named 2d-graphics-editor and add main.c and README.md.
+
+------------------------------------------------
+
+Prompt 3:
+I was given a template program.
+
+Response:
+Suggested using the faculty template instead of writing a new structure.
+
+------------------------------------------------
+
+Prompt 4:
+Help me complete the TODO functions in the template.
+
+Response:
+Provided code for clearPicture(), displayPicture(), setPixel(), drawLine(), drawRectangle(), drawCircle(), and drawTriangle().
+
+------------------------------------------------
+
+Prompt 5:
+What should I do after pasting the template?
+
+Response:
+Explained how to commit the template first and then implement the drawing functions step by step.
+
+------------------------------------------------
+
+Prompt 6:
+How do I add delete object functionality?
+
+Response:
+Provided deleteArea() function and explained how to add it to the menu.
+
+------------------------------------------------
+
+Prompt 7:
+How do I add modify object functionality?
+
+Response:
+Explained that modification can be done by deleting the old object area and drawing a new object.
+
+------------------------------------------------
+
+Prompt 8:
+Give complete code.
+
+Response:
+Provided the complete menu-driven C program with draw, display, delete, clear, and modify options.
+
+------------------------------------------------
+
+Prompt 9:
+How do I compile and run the program?
+
+Response:
+Explained how to run the C program using an online compiler such as OnlineGDB.
+
+------------------------------------------------
+
+Prompt 10:
+Check whether my repository is ready for submission.
+
+Response:
+Reviewed the repository checklist and confirmed that it contains main.c, README.md, drawing functions, delete, modify, and GitHub commits.
