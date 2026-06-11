@@ -29,3 +29,7 @@ gcc main.c -o graphics
 Run:
 
 ./graphics
+
+submitted by 
+NAME: LOHITHA TANMAYE KUPPALA
+SRN:R25EQ037
